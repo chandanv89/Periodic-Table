@@ -1,0 +1,74 @@
+.element-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  min-width: 75px;
+  min-height: 75px;
+  max-width: 110px;
+  max-height: 110px;
+  border: 1px solid #ccc;
+  padding: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.element-container:hover {
+  transform: scale(1.1);
+}
+
+.atomic-data {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.atomic-number {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.atomic-mass {
+  display: none;
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+.element-symbol {
+  font-size: 1.75em;
+  font-weight: 800;
+}
+
+.element-meta {
+  display: none;
+  width: 100%;
+  font-size: 0.65em;
+  font-style: italic;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+}
+
+.element-name {
+  display: none;
+  font-variant: all-petite-caps;
+  font-weight: 400;
+}
+
+@media (min-width: 992px) {
+  .atomic-mass, .element-meta, .element-name {
+    display: block;
+  }
+}
+
+@media (max-width: 992px) {
+  .element-container {
+    max-width: 10px;
+    max-height: 10px;
+    font-size: x-small;
+  }
+}

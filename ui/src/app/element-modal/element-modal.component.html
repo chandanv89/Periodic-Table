@@ -1,0 +1,111 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ element.name }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="element-info">
+        <div class="left">
+            <div class="top">
+                <app-loader-animation *ngIf="!loaded"></app-loader-animation>
+                <iframe title="{{element.name}}" width="100%" height="320px" style="padding-right: 15px;"
+                    [srcdoc]="summary"></iframe>
+            </div>
+            <div class="bottom">
+                <app-element-images [images]="images"></app-element-images>
+            </div>
+        </div>
+        <div class="right">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Atomic Number</th>
+                        <td>{{ element.atomicNumber }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Atomic Mass</th>
+                        <td>{{ element.atomicMass | safeUnit: 'u' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Electron Configuration</th>
+                        <td>{{ element.electronicConfiguration }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Electronegativity</th>
+                        <td>{{ element.electronegativity }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Atomic Radius</th>
+                        <td>{{ element.atomicRadius }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ion Radius</th>
+                        <td>{{ element.ionRadius}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Van der Waals Radius</th>
+                        <td>{{ element.vanDerWaalsRadius | safeUnit: 'pm' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ionization Energy</th>
+                        <td>{{ element.ionizationEnergy | safeUnit: 'eV' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Electron Affinity</th>
+                        <td>{{ element.electronAffinity | safeUnit: 'eV' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Oxidation States</th>
+                        <td>{{ element.oxidationStates }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Standard State</th>
+                        <td>{{ element.standardState | toCase: 'title'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Bonding Type</th>
+                        <td>{{ element.bondingType | toCase: 'title'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Melting Point</th>
+                        <td>{{ element.meltingPoint | safeUnit: 'K'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Boiling Point</th>
+                        <td>{{ element.boilingPoint |safeUnit: 'K' }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Density</th>
+                        <td>{{ element.density | safeUnit: 'g/cm&lt;sup&gt;3&lt;/sup&gt;'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Group Block</th>
+                        <td>{{ element.groupBlock | toCase: 'title'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Year Discovered</th>
+                        <td>{{ element.yearDiscovered }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Block</th>
+                        <td>{{ element.block | toCase: 'upper'}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CPK Hex Color</th>
+                        <td><span class="color-box" style="background-color: #{{element.cpkHexColor}}"></span> {{
+                            element.cpkHexColor | toCase: 'upper' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="info-links">
+        <a href="https://pubchem.ncbi.nlm.nih.gov/element/{{element.atomicNumber}}" target="_blank"
+            class="btn btn-primary">PubChem</a>
+        <a href="https://en.wikipedia.org/wiki/{{element.name}}" target="_blank" class="btn btn-primary">Wikipedia</a>
+    </div>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">
+        Close
+    </button>
+</div>

@@ -1,0 +1,11 @@
+<div class="element-container" ngClass="{{element.groupBlock | toHtmlClassName}}">
+  <div class="atomic-data">
+    <span class="atomic-number">{{ element.atomicNumber }}</span> <br />
+    <span class="atomic-mass">{{ element.atomicMass }}</span>
+  </div>
+  <div>
+    <span class="element-symbol">{{ element.symbol }}</span>
+  </div>
+  <div class="element-name">{{ element.name }}</div>
+  <div class="element-meta">{{ element.groupBlock }}</div>
+</div>

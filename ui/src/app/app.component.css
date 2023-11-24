@@ -1,0 +1,119 @@
+.elements {
+  margin: 2rem;
+  display: grid;
+  gap: 0.25rem;
+  grid-auto-columns: minmax(0, 1fr);
+
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+
+  -webkit-column-break-before: avoid;
+  break-before: avoid;
+}
+
+#an-2 {
+  grid-column-start: 18;
+}
+
+#an-5,
+#an-13 {
+  grid-column-start: 13;
+}
+
+#an-57,
+#an-58,
+#an-59,
+#an-60,
+#an-61,
+#an-62,
+#an-63,
+#an-64,
+#an-65,
+#an-66,
+#an-67,
+#an-68,
+#an-69,
+#an-70,
+#an-71 {
+  grid-row-start: 9;
+}
+#an-104,
+#an-57,
+#an-72,
+#an-89 {
+  grid-column-start: 4;
+}
+
+#an-100,
+#an-101,
+#an-102,
+#an-103,
+#an-89,
+#an-90,
+#an-91,
+#an-92,
+#an-93,
+#an-94,
+#an-95,
+#an-96,
+#an-97,
+#an-98,
+#an-99 {
+  grid-row-start: 10;
+}
+#an-58,
+#an-90 {
+  grid-column-start: 5;
+}
+#an-59,
+#an-91 {
+  grid-column-start: 6;
+}
+#an-60,
+#an-92 {
+  grid-column-start: 7;
+}
+#an-61,
+#an-93 {
+  grid-column-start: 8;
+}
+#an-62,
+#an-94 {
+  grid-column-start: 9;
+}
+#an-63,
+#an-95 {
+  grid-column-start: 10;
+}
+#an-64,
+#an-96 {
+  grid-column-start: 11;
+}
+#an-65,
+#an-97 {
+  grid-column-start: 12;
+}
+#an-66,
+#an-98 {
+  grid-column-start: 13;
+}
+#an-67,
+#an-99 {
+  grid-column-start: 14;
+}
+#an-68,
+#an-100 {
+  grid-column-start: 15;
+}
+#an-69,
+#an-101 {
+  grid-column-start: 16;
+}
+#an-70,
+#an-102 {
+  grid-column-start: 17;
+}
+#an-71,
+#an-103 {
+  grid-column-start: 18;
+}

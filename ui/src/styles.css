@@ -1,0 +1,82 @@
+/* @import url('https://pubchem.ncbi.nlm.nih.gov/pcfe/libs/styles/pubchem.min.css'); */
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 10px auto;
+}
+
+.nonmetal,
+.halogen {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 0, 0.2),
+    rgba(255, 255, 0, 0.3)
+  );
+  border: 1px solid rgb(124 124 0 / 15%);
+}
+.metalloid {
+  background: linear-gradient(
+    110deg,
+    rgba(140, 190, 0, 0.2),
+    rgba(140, 190, 0, 0.3)
+  );
+  border: 1px solid rgba(140, 190, 0, 0.15);
+}
+.metal,
+.post-transition-metal {
+  background: linear-gradient(
+    110deg,
+    rgba(0, 255, 0, 0.2),
+    rgba(0, 255, 0, 0.3)
+  );
+  border: 1px solid rgba(0, 255, 0, 0.15);
+}
+.noble-gas {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 152, 0, 0.2),
+    rgba(255, 152, 0, 0.3)
+  );
+  border: 1px solid rgba(255, 152, 0, 0.15);
+}
+
+.alkali-metal {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 0, 0, 0.2),
+    rgba(255, 0, 0, 0.25)
+  );
+  border: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+.alkaline-earth-metal {
+  background: linear-gradient(
+    110deg,
+    rgba(64, 64, 255, 0.2),
+    rgba(64, 64, 255, 0.25)
+  );
+  border: 1px solid rgba(64, 64, 255, 0.15);
+}
+.transition-metal {
+  background: linear-gradient(
+    110deg,
+    rgba(0, 128, 255, 0.2),
+    rgba(0, 128, 255, 0.3)
+  );
+  border: 1px solid rgba(0, 128, 255, 0.15);
+}
+.lanthanoid {
+  background: linear-gradient(
+    110deg,
+    rgba(0, 255, 255, 0.25),
+    rgba(0, 255, 255, 0.35)
+  );
+  border: 1px solid rgba(0, 255, 255, 0.15);
+}
+.actinoid {
+  background: linear-gradient(
+    110deg,
+    rgba(64, 255, 192, 0.25),
+    rgba(64, 255, 192, 0.35)
+  );
+  border: 1px solid rgba(64, 255, 192, 0.15);
+}
