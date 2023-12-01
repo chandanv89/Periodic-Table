@@ -1,0 +1,6 @@
+api/.gradle
+api/.idea
+api/logs
+
+ui/dist
+ui/node_modules
