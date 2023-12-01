@@ -1,10 +1,14 @@
 package com.github.chandanv89.api.periodictable.model.wiki;
 
+import com.github.chandanv89.api.periodictable.util.Utils;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
 public class ArticleUrl {
   private String page;
+
+  @Override
+  public String toString() {
+    return Utils.toJson(this);
+  }
 }

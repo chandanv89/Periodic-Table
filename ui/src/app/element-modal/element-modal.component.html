@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Electron Configuration</th>
-                        <td>{{ element.electronicConfiguration }}</td>
+                        <td><span [innerHTML]="element.electronicConfiguration | toElectronConfig"></span></td>
                     </tr>
                     <tr>
                         <th scope="row">Electronegativity</th>
@@ -75,7 +75,8 @@
                     </tr>
                     <tr>
                         <th scope="row">Density</th>
-                        <td>{{ element.density | safeUnit: 'g/cm&lt;sup&gt;3&lt;/sup&gt;'}}</td>
+                        <td>{{ element.density}} <span *ngIf="element.density+'' != 'unknown'">g/cm<sup>3</sup></span>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">Group Block</th>

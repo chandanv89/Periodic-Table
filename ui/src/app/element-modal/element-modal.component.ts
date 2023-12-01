@@ -32,8 +32,8 @@ export class ElementModalComponent implements OnInit {
     this.backendService
       .getWikiSummary(this.element.name)
       .subscribe((summary: any) => {
-        this.summary = summary?.extract_html;
         this.fetchImages();
+        this.summary = summary?.extract_html;
       });
   }
 

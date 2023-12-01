@@ -16,6 +16,7 @@ import { ElementImagesComponent } from './element-images/element-images.componen
 import { ElementModalComponent } from './element-modal/element-modal.component';
 import { ElementComponent } from './element/element.component';
 import { LoaderAnimationComponent } from './loader-animation/loader-animation.component';
+import { ToElectronConfigPipe } from './core/pipes/to-electron-config.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LoaderAnimationComponent } from './loader-animation/loader-animation.co
     ToHtmlClassNamePipe,
     ToCasePipe,
     SafeUnitPipe,
-    LoaderAnimationComponent
+    LoaderAnimationComponent,
+    ToElectronConfigPipe
   ],
   imports: [
     CommonModule,

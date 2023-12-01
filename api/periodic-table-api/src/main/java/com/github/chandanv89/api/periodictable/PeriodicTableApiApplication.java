@@ -9,22 +9,22 @@ import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@SpringBootApplication
 @EnableCaching
+@SpringBootApplication
 public class PeriodicTableApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PeriodicTableApiApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(PeriodicTableApiApplication.class, args);
+  }
 
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplateBuilder().build();
-	}
+  @Bean
+  public RestTemplate restTemplate() {
+    return new RestTemplateBuilder().build();
+  }
 
-	@Bean
-	public CacheManager cacheManager() {
-		return new ConcurrentMapCacheManager("elementsCache", "wikiSummaryCache", "imageUrlsCache");
-	}
+  @Bean
+  public CacheManager cacheManager() {
+    return new ConcurrentMapCacheManager("elementsCache", "wikiSummaryCache", "imageUrlsCache");
+  }
 
 }

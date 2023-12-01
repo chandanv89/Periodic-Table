@@ -2,6 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 10px auto;
+  font: 400 1rem/1.75 Inter, system-ui, sans-serif;
 }
 
 .nonmetal,

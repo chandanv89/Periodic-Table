@@ -6,7 +6,13 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-image": "docker build -t periodic-table-docker-image .",
+    "remove-image": "docker rmi periodic-table-docker-image",
+    "run-container": "docker run --name periodic-table-docker-container -d -p 8080:80 periodic-table-docker-image",
+    "remove-container": "docker rm -f periodic-table-docker-container",
+    "containerize": "npm run build-image && npm run run-container",
+    "recontainerize": "npm run remove-container && npm run build-image && npm run run-container"
   },
   "private": true,
   "dependencies": {

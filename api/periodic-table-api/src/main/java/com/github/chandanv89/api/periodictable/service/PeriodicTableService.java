@@ -31,8 +31,11 @@ public class PeriodicTableService {
 
   @Cacheable(cacheNames = {"wikiSummaryCache"})
   public WikiSummary getWikiSummary(String elementName) {
-    var element = elementName != null && elementName.equalsIgnoreCase("mercury") ? "Mercury_(element)" : elementName;
-    var summary = restTemplate.getForEntity(format(WIKI_URL, element.toLowerCase().trim()), WikiSummary.class);
+    final var element = elementName != null && elementName.equalsIgnoreCase("mercury") ? "Mercury_(element)" : elementName;
+    final var url = format(WIKI_URL, element);
+
+    var summary = restTemplate.getForEntity(url, WikiSummary.class);
+
     log.info("Wiki Summary for {}: {}", elementName, summary.getBody());
 
     return summary.getBody();
