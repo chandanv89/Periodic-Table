@@ -2,6 +2,7 @@ package com.github.chandanv89.api.periodictable.service;
 
 import static java.lang.String.format;
 
+import com.github.chandanv89.api.periodictable.exception.ImageUrlNotFoundException;
 import com.github.chandanv89.api.periodictable.model.Element;
 import com.github.chandanv89.api.periodictable.model.wiki.WikiSummary;
 import com.github.chandanv89.api.periodictable.repository.PeriodicTableRepository;
@@ -44,8 +45,13 @@ public class PeriodicTableService {
   @Cacheable(cacheNames = {"imageUrlsCache"})
   public List<String> getElementImageUrls(String elementName) {
     var urls = new ArrayList<String>();
-    urls.add(format("https://images-of-elements.com/%s.jpg", elementName.toLowerCase()));
-    urls.add(getWikiSummary(elementName).getOriginalimage().getSource());
+
+    try {
+      urls.add(format("https://images-of-elements.com/%s.jpg", elementName.toLowerCase()));
+      urls.add(getWikiSummary(elementName).getOriginalimage().getSource());
+    } catch (NullPointerException npe) {
+      throw new ImageUrlNotFoundException(elementName, format("Image URL not found on the Wiki Summary for the element %s", elementName), npe);
+    }
 
     return urls;
   }
