@@ -9,6 +9,10 @@
   background-color: #5cb3fd;
 }
 
+.top {
+  font: 400 1rem/1.75 IBM Plex Serif, serif;
+}
+
 .modal-footer {
   display: flex;
   justify-content: space-between;
@@ -71,4 +75,8 @@
   border-radius: 50px;
   width: 15px;
   height: 15px;
+}
+
+.modal-title {
+  font: 700 1.5rem/1.5 Inter, sans-serif;
 }
