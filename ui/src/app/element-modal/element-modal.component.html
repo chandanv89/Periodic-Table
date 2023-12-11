@@ -10,7 +10,7 @@
                 <span *ngIf="loaded" [innerHTML]="summary"></span>
             </div>
             <div class="bottom">
-                <app-element-images [images]="images"></app-element-images>
+                <app-element-images *ngIf="images" [images]="images"></app-element-images>
             </div>
         </div>
         <div class="right">

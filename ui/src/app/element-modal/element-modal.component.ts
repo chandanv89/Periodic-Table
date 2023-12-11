@@ -38,14 +38,20 @@ export class ElementModalComponent implements OnInit {
   }
 
   private fetchImages() {
-    this.backendService.getImages(this.element.name).subscribe((images) => {
-      this.images = images.map((image) => {
-        return {
-          src: image,
-          alt: this.element.name,
-        };
-      });
-      this.loaded = true;
-    });
+    this.backendService.getImages(this.element.name).subscribe(
+      (images) => {
+        this.images = images.map((image) => {
+          return {
+            src: image,
+            alt: this.element.name,
+          };
+        });
+        this.loaded = true;
+      },
+      (err) => {
+        console.log(err.error);
+        this.loaded = true;
+      }
+    );
   }
 }
