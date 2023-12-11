@@ -1,8 +1,8 @@
-name: Push UI image to DockerHub and GHCR
+name: Push Combined app image to DockerHub and GHCR (release)
 
 on:
   push:
-    branches: ["main", "master", "develop"]
+    branches: ["master", "main", "release/*"]
 
 jobs:
   docker:
@@ -30,8 +30,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: ./ui
+          context: .
+          file: ./Dockerfile
           push: true
           tags: |
-            chandanv89/periodic-table-ui:latest
-            ghcr.io/chandanv89/periodic-table-ui:latest
+            chandanv89/periodic-table:latest
+            ghcr.io/chandanv89/periodic-table:latest
