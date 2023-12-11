@@ -2,6 +2,7 @@ package com.github.chandanv89.api.periodictable.service;
 
 import static java.lang.String.format;
 
+import com.github.chandanv89.api.periodictable.exception.ElementNotFoundException;
 import com.github.chandanv89.api.periodictable.exception.ImageUrlNotFoundException;
 import com.github.chandanv89.api.periodictable.model.Element;
 import com.github.chandanv89.api.periodictable.model.wiki.WikiSummary;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -34,12 +36,15 @@ public class PeriodicTableService {
   public WikiSummary getWikiSummary(String elementName) {
     final var element = elementName != null && elementName.equalsIgnoreCase("mercury") ? "Mercury_(element)" : elementName;
     final var url = format(WIKI_URL, element);
+    WikiSummary summary;
 
-    var summary = restTemplate.getForEntity(url, WikiSummary.class);
-
-    log.info("Wiki Summary for {}: {}", elementName, summary.getBody());
-
-    return summary.getBody();
+    try {
+      summary = restTemplate.getForEntity(url, WikiSummary.class).getBody();
+      log.info("Wiki Summary for {}: {}", elementName, summary);
+      return summary;
+    } catch (HttpClientErrorException ex) {
+      throw new ElementNotFoundException(elementName, format("Element not found: %s", elementName), ex);
+    }
   }
 
   @Cacheable(cacheNames = {"imageUrlsCache"})

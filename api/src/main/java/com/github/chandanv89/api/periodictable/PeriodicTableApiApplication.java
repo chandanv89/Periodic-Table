@@ -1,5 +1,6 @@
 package com.github.chandanv89.api.periodictable;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -25,6 +26,11 @@ public class PeriodicTableApiApplication {
   @Bean
   public CacheManager cacheManager() {
     return new ConcurrentMapCacheManager("elementsCache", "wikiSummaryCache", "imageUrlsCache");
+  }
+
+  @Bean
+  public ObjectMapper objectMapper() {
+    return new ObjectMapper();
   }
 
 }

@@ -30,6 +30,7 @@ public class InitialLoaderService {
   @PostConstruct
   @Transactional()
   public void loadWords() {
+    log.info("Initialising Periodic Table...");
     long start = System.currentTimeMillis();
     mapper = new ObjectMapper();
     List<Element> elements = new ArrayList<>();
@@ -38,15 +39,21 @@ public class InitialLoaderService {
       elements = mapper.readValue(new ClassPathResource(config.getJpa().getSeedPath()).getInputStream(), typeRef);
 
       List<Element> batch = new ArrayList<>();
-      for (int i = 0; i < elements.size(); i++) {
-        log.info("Loading {} {}@{}", elements.get(i).getName(), elements.get(i).getSymbol(), elements.get(i).getAtomicNumber());
-        batch.add(elements.get(i));
 
-        if (i == elements.size() - 1 || i % config.getJpa().getBatchSize() == 0) {
+      for (Element element : elements) {
+        batch.add(element);
+        if (batch.size() == config.getJpa().getBatchSize()) {
+          log.debug("Loading batch of {} elements", batch.size());
           repository.saveAll(batch);
-          batch = new ArrayList<>();
+          batch.clear();
         }
       }
+
+      if (!batch.isEmpty()) {
+        log.debug("Saving last batch of {} elements", batch.size());
+        repository.saveAll(batch);
+      }
+
     } catch (Exception e) {
       log.error("Something went wrong!", e);
     }

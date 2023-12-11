@@ -3,14 +3,15 @@ package com.github.chandanv89.api.periodictable.exception;
 import lombok.Getter;
 
 /**
- * Exception thrown when image url construction fails for the given element.
+ * Exception thrown when an element is not found in the database.
  */
 @Getter
-public class ImageUrlNotFoundException extends RuntimeException {
+public class ElementNotFoundException extends RuntimeException {
+
   private final String elementName;
   private final String message;
 
-  public ImageUrlNotFoundException(String elementName, String message, Throwable cause) {
+  public ElementNotFoundException(String elementName, String message, Throwable cause) {
     super(message, cause);
     this.elementName = elementName;
     this.message = message;

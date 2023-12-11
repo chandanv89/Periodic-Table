@@ -8,5 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "periodictable.api")
 public class Config {
+
+  /**
+   * Properties related to configuring the JPA layer
+   */
   private JpaConfigs jpa;
 }
