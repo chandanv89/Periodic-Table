@@ -20,7 +20,7 @@ jobs:
         with:
           images: |
             chandanv89/periodic-table
-            ghcr.io/chandanv89/periodic-table
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -46,6 +46,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            chandanv89/periodic-table:latest
-            ghcr.io/chandanv89/periodic-table:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
