@@ -1,4 +1,6 @@
-# PeriodicTable
+# Periodic Table UI
+
+[![Push UI image to DockerHub (snapshot)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-ui-img-to-dh.yml/badge.svg)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-ui-img-to-dh.yml)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
 

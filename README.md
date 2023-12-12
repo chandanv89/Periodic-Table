@@ -1,4 +1,7 @@
 # Periodic Table
+[![Publish Docker image to GHCR](https://github.com/chandanv89/Periodic-Table/actions/workflows/github-package.yml/badge.svg)](https://github.com/chandanv89/Periodic-Table/actions/workflows/github-package.yml)
+[![Push Combined app image to DockerHub (snapshot)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-to-dh-snapshot.yml/badge.svg)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-to-dh-snapshot.yml)
+
 A simple app to explore the chemical elements of the periodic table.
 
 ![Periodic Table](periodic-table.png)

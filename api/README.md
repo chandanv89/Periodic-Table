@@ -1,4 +1,5 @@
 # Periodic Table API
+[![Push API image to DockerHub (snapshot)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-api-img-to-dh.yml/badge.svg)](https://github.com/chandanv89/Periodic-Table/actions/workflows/push-api-img-to-dh.yml)
 
 This project provides a few RESTful endpoints for the Periodic Table app.
 
