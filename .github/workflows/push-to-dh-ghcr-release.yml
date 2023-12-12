@@ -20,8 +20,7 @@ jobs:
         with:
           images: |
             chandanv89/periodic-table
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          #  ghcr.io/chandanv89/periodic-table
+            ghcr.io/chandanv89/periodic-table
           tags: |
             type=ref,event=branch
             type=ref,event=pr
