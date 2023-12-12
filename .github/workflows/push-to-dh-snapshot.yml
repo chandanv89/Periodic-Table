@@ -1,4 +1,4 @@
-name: Push Combined app image to DockerHub and GHCR (snapshot)
+name: Push Combined app image to DockerHub (snapshot)
 
 on:
   push:
@@ -20,7 +20,6 @@ jobs:
         with:
           images: |
             chandanv89/periodic-table
-            ghcr.io/chandanv89/periodic-table
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -32,13 +31,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v5
